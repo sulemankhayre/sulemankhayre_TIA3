@@ -48,6 +48,7 @@ Users can implement rating system for reviews.
 
 ### Trello
 
+[Link to trello] 
 https://trello.com/b/FGQLPfuH/sulemankhayretia1board
 
 
