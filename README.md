@@ -2,7 +2,7 @@
 
 # Link to source control repository 
 
-https://github.com/sulemankhayre/sulemankhayre_TIA3/tree/main/src
+[Source control] https://github.com/sulemankhayre/sulemankhayre_TIA3/tree/main/src
 
 
 #  Review  app
@@ -37,7 +37,18 @@ Users can  search reviews
 Users can implement rating system for reviews.
 
 
+# Implementation Plan
 
+## Tshirt system 
+
+![High-Priority](./docs/High-pri.png)
+![Medium-Priority](./docs/Med-pri.png)
+![Low-Priority](./docs/Low-pri.png)
+![Log](./docs/Log.png)
+
+### Trello
+
+https://trello.com/b/FGQLPfuH/sulemankhayretia1board
 
 
 
