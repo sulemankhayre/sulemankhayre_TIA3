@@ -44,6 +44,7 @@ Users can implement rating system for reviews.
 ![High-Priority](./docs/High-pri.png)
 ![Medium-Priority](./docs/Med-pri.png)
 ![Low-Priority](./docs/Low-pri.png)
+
 ![Log](./docs/Log.png)
 
 ### Trello
