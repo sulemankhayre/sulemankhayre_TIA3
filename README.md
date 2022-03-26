@@ -12,6 +12,9 @@ I inteded to create this app because i love tv shows, i created a journal for my
 
 # Code style 
 
+
+using RuboCop Ruby code style checker (linter) and formatter based on the community-driven Ruby Style Guide and following ruby conventions.
+
 Code follows OOP and has division of classes and modules
 
 All lines of methods operate on the same level of abstraction.
