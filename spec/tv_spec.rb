@@ -17,13 +17,27 @@ describe Tv do
     describe '#get_direc' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
-        expect(Tv.get_tv).to eq('sam')
+        expect(Tv.get_direc).to eq('sam')
         end
     it 'raises an exception if name is empty' do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
-        expect{Tv.get_tv}.to raise_error(InvalidNameError)
+        expect{Tv.get_direc}.to raise_error(InvalidNameError)
+        end
     end
 end
+
+describe Tv do
+    describe '#get_review' do
+    it 'returns the review input by the user' do
+        allow(Tv).to receive(:gets) .and_return('sam')
+        expect(Tv.get_review).to eq('sam')
+        end
+    it 'raises an exception if review is empty' do
+        allow(Tv).to receive(:gets) .and_return('  ', 'hello')
+        expect{Tv.get_review}.to raise_error(InvalidNameError)
+        end
+    end
 end
+
 
 
