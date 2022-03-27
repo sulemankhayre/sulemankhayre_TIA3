@@ -59,4 +59,25 @@ rescue  InvalidNameError => e
 end
 
 
+def  self.get_name
+    print "Enter your DOB:"
+    time = gets.strip
+    print 'Enter your time'
+    dob = gets.strip
+    raise(InvalidNameError) if time.empty?
+    return dob,time
+
+def greet(name)
+    puts "Hello there, #{name} !"
 end
+end
+begin
+foo = get_name
+puts "The date and time of the review are #{foo}"
+rescue  InvalidNameError => e
+    puts e.message
+    retry
+
+end
+end
+
