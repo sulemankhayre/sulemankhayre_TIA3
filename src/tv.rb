@@ -1,3 +1,27 @@
+
+
+
+puts "Welcome to the Tv show review"
+puts "To procced please choose from the menu with numbers 1-5"
+puts "Add Tv shows"
+puts "Edit TV shows"
+puts "Delete Tv shows"
+puts "Search Tv shows"
+puts "Exit"
+
+select = gets.strip
+
+if select == "1"
+    module Tv
+    end
+end
+
+ 
+
+
+
+
+
 class InvalidNameError < StandardError
     #input of tv show
     def message 
@@ -5,14 +29,16 @@ class InvalidNameError < StandardError
     end
 end
 module Tv
+
+
+
+  
 def  self.get_tv
     print "Enter the Tv show:"
     tv = gets.strip
     raise(InvalidNameError) if tv.empty?
     return tv
 end
-
-
 
 begin
 foo = get_tv
@@ -78,6 +104,17 @@ rescue  InvalidNameError => e
     puts e.message
     retry
 
+        end
+def read_input
+
+
+
 end
+
+ file = File.open('./src/tv_list.txt', 'a')
+ file.puts  foo
+ file.puts  foo2
+ file.close
 end
+
 
