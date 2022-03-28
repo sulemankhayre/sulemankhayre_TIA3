@@ -49,9 +49,11 @@ describe Tv do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
         expect{Tv.get_tv}.to raise_error(InvalidNameError)
         end
-    end
-   
-end  
+
+    
+  end
+end
+
 
     
 
