@@ -1,4 +1,7 @@
 
+def self.read
+File.read('./src/tv_list.txt')
+end
 
 
 puts "Welcome to the Tv show review"
@@ -14,12 +17,10 @@ select = gets.strip
 if select == "1"
     module Tv
     end
+elsif select == "2"
+    p read
+    return
 end
-
- 
-
-
-
 
 
 class InvalidNameError < StandardError
@@ -93,28 +94,28 @@ def  self.get_name
     raise(InvalidNameError) if time.empty?
     return dob,time
 
-def greet(name)
+def greet()
     puts "Hello there, #{name} !"
 end
 end
 begin
-foo = get_name
+foo4 = get_name
 puts "The date and time of the review are #{foo}"
 rescue  InvalidNameError => e
     puts e.message
     retry
 
         end
-def read_input
-
-
-
-end
 
  file = File.open('./src/tv_list.txt', 'a')
- file.puts  foo
- file.puts  foo2
+ file.puts foo
+ file.puts foo2
+ file.puts foo4
+ file.puts foo3
  file.close
+
+
+
 end
 
 
