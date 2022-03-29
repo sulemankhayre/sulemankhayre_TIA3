@@ -1,5 +1,10 @@
 
 
+module Delete
+def self.del
+end
+end
+
 
 def self.read
 file = File.open('./src/tv_list.txt')
@@ -13,11 +18,11 @@ end
 
 puts "Welcome to the Tv show review"
 puts "To procced please choose from the menu with numbers 1-5"
-puts "Add Tv shows"
-puts "Show all TV shows"
-puts "Edit all TV shows"
-puts "Delete all shows And Restart"
-puts "Search Tv shows"
+puts "1.Add Tv shows"
+puts "2.Show all TV shows"
+puts "3.Delete Last input"
+puts "4.Delete all shows And Restart"
+puts "5.Search Tv shows"
 puts "Exit"
 
 select = gets.strip
@@ -32,9 +37,9 @@ elsif select == "2"
 elsif select == "3"
     puts edit
 elsif select == "4"
-    module Delete
-    end
+    File.open('./src/tv_list.txt', 'w') {|file| file.truncate(0) }
 end
+
 
 
 
@@ -45,13 +50,6 @@ class InvalidNameError < StandardError
     end
 end
 module Tv
-module Delete
-File.open('./src/tv_list.txt', 'w') {|file| file.truncate(0) }
-
-end
-
-
-  
 def  self.get_tv
     print "Enter the Tv show:"
     tv = gets.strip
@@ -143,11 +141,4 @@ file.puts ""
  file.close
 
 
-
-end
-
-def self.edit
-    file = File.open('./src/tv_list.txt', 'r')
-    allfoo = []
-    puts allfoo
 end
