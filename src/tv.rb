@@ -4,6 +4,7 @@
 def self.read
 file = File.open('./src/tv_list.txt')
 data = file.readlines.map { |x| x.strip()}
+
 puts "######"
 puts data
 puts "######"
@@ -13,8 +14,9 @@ end
 puts "Welcome to the Tv show review"
 puts "To procced please choose from the menu with numbers 1-5"
 puts "Add Tv shows"
-puts "Edit TV shows"
-puts "Delete Tv shows"
+puts "Show all TV shows"
+puts "Edit all TV shows"
+puts "Delete all shows And Restart"
 puts "Search Tv shows"
 puts "Exit"
 
@@ -26,10 +28,14 @@ if select == "1"
 elsif select == "2"
     puts "\n\nYour stored Reviews\n\n "
     puts read
-
-
     return
+elsif select == "3"
+    puts edit
+elsif select == "4"
+    module Delete
+    end
 end
+
 
 
 class InvalidNameError < StandardError
@@ -39,7 +45,10 @@ class InvalidNameError < StandardError
     end
 end
 module Tv
+module Delete
+File.open('./src/tv_list.txt', 'w') {|file| file.truncate(0) }
 
+end
 
 
   
@@ -110,7 +119,7 @@ end
 begin
 foo4 = get_name
 
-allfoo = foo.chomp  + "                  "+ foo2.chomp + "                      " + foo3.chomp + "                                                                             " + foo4.chomp 
+allfoo = foo.chomp  + "                             "+ foo2.chomp + "                               " + foo3.chomp + "                                      " + foo4.chomp 
 puts "The date and time of the review are #{foo}"
 rescue  InvalidNameError => e
     puts e.message
@@ -119,7 +128,8 @@ rescue  InvalidNameError => e
         end
 
  file = File.open('./src/tv_list.txt', 'a')
- file.puts "TV Show                   Director                  Review                                                                                          Date time"
+ file.print "TV Show                     Director                       Review                               Date time"
+
  file.puts ""
 
 #  file.puts foo.chomp
@@ -136,4 +146,8 @@ file.puts ""
 
 end
 
-
+def self.edit
+    file = File.open('./src/tv_list.txt', 'r')
+    allfoo = []
+    puts allfoo
+end
