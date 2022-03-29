@@ -1,10 +1,16 @@
+#Gems
+require 'ruby_figlet'
+require 'rainbow/refinement'
+require "tty-prompt"
 
 
-module Delete
-def self.del
-end
-end
+using RubyFiglet 
 
+
+puts RubyFiglet::Figlet
+moo = "Ruby!"
+moo.art!
+puts moo
 
 def self.read
 file = File.open('./src/tv_list.txt')
@@ -15,29 +21,45 @@ puts data
 puts "######"
 end
 
+def main_menu 
+prompt = TTY::Prompt.new
 
-puts "Welcome to the Tv show review"
-puts "To procced please choose from the menu with numbers 1-5"
-puts "1.Add Tv shows"
-puts "2.Show all TV shows"
-puts "3.Delete Last input"
-puts "4.Delete all shows And Restart"
-puts "5.Search Tv shows"
-puts "Exit"
+puts Rainbow(" ##### MAIN MENU #####").green
+prompt.mask("What is your name?") do |q|
+  q.required true
+  q.validate /\A\w+\Z/
+  q.modify   :capitalize
+end
+
+puts Rainbow("Welcome to the Tv show review").green
+puts Rainbow("To procced please choose from the menu with numbers 1-5").green
+puts Rainbow("1.Add Tv shows").green
+puts Rainbow("2.Show all TV shows").green
+puts Rainbow("3.Edit-not done").green
+puts Rainbow("4.Delete all shows And Restart").green
+puts Rainbow("5.Search Tv shows").green
+puts Rainbow("Exit").green
+
+
+end
+
+
+main_menu
 
 select = gets.strip
-
 if select == "1"
     module Tv
     end
 elsif select == "2"
-    puts "\n\nYour stored Reviews\n\n "
+    puts Rainbow("\n\nYour stored Reviews\n\n ").green
     puts read
     return
 elsif select == "3"
     puts edit
 elsif select == "4"
     File.open('./src/tv_list.txt', 'w') {|file| file.truncate(0) }
+elsif select == "5"
+    exit
 else 
     exit
 end
@@ -48,12 +70,12 @@ end
 class InvalidNameError < StandardError
     #input of tv show
     def message 
-        return "Show must not be empty"
+        return Rainbow("Show must not be empty").green
     end
 end
 module Tv
 def  self.get_tv
-    print "Enter the Tv show:"
+    print Rainbow("Enter the Tv show:").green
     tv = gets.strip
     raise(InvalidNameError) if tv.empty?
     return tv
@@ -61,7 +83,7 @@ end
 
 begin
 foo = get_tv
-puts "The TV show you have watched is #{foo}, it will be stored thankyou!"
+puts Rainbow("The TV show you have watched is #{foo}, it will be stored thankyou!").green
 rescue  InvalidNameError => e
     puts e.message
     retry
@@ -69,7 +91,7 @@ end
 # input of director
 
 def  self.get_direc
-    print "Enter the Director:"
+    print Rainbow("Enter the Director:").green
     director = gets.strip
     raise(InvalidNameError) if director.empty?
     return director
@@ -79,7 +101,7 @@ end
 
 begin
 foo2 = get_direc
-puts "The TV Director is #{foo2}, it will be stored thankyou!"
+puts Rainbow("The TV Director is #{foo2}, it will be stored thankyou!").green
 rescue  InvalidNameError => e
     puts e.message
     retry
@@ -87,7 +109,7 @@ end
 #input of review 
 
 def  self.get_review
-    print "Please tell thoughts on show!:"
+    print Rainbow("Please tell thoughts on show!:").green
     review = gets.strip
     raise(InvalidNameError) if review.empty?
     return review
@@ -97,7 +119,7 @@ end
 
 begin
 foo3 = get_review
-puts " \n\nYour output\n\n#{foo3}\n\n It will be stored thankyou!"
+puts Rainbow(" \n\nYour output\n\n#{foo3}\n\n It will be stored thankyou!").green
 rescue  InvalidNameError => e
     pp e.message
     retry
@@ -105,44 +127,37 @@ end
 
 
 def  self.get_name
-    print "Enter your DOB:"
+    print Rainbow("Enter your DOB:").green
     time = gets.strip
-    print 'Enter your time'
+    print Rainbow('Enter your time').green
     dob = gets.strip
     raise(InvalidNameError) if time.empty?
     return dob + time
 
 def greet()
-    puts "Hello there, #{name} !"
+    puts Rainbow("Hello there, #{name} !").green
 end
 end
 begin
 foo4 = get_name
 
-allfoo = foo.chomp  + "                             "+ foo2.chomp + "                               " + foo3.chomp + "                                      " + foo4.chomp 
-allfoo2 = [foo,foo2,foo3,foo4]
-puts "The date and time of the review are #{foo}"
+allfoo2 = [foo, foo2, foo3, foo4]
+puts Rainbow("The date and time of the review are #{foo}").green
 rescue  InvalidNameError => e
     puts e.message
     retry
 
         end
 
- file = File.open('./src/tv_list.txt', 'a')
- file.print "TV Show                     Director                       Review                               Date time"
+using Rainbow
 
- file.puts ""
+file = File.open('./src/tv_list.txt', 'a')
+file.print Rainbow(["TV Show, Director, Review, Date  time"]).green
+file.puts " "
+file.puts " "
+file.print Rainbow(allfoo2).color(3)
+file.puts " "
 
-#  file.puts foo.chomp
-
-#  file.puts foo2.chomp
-#  file.puts foo4
-#  file.puts foo3.chomp
-file.puts allfoo 
-file.puts ""
-file.print allfoo2
-
- file.close
 
 
 end
