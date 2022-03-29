@@ -38,6 +38,8 @@ elsif select == "3"
     puts edit
 elsif select == "4"
     File.open('./src/tv_list.txt', 'w') {|file| file.truncate(0) }
+else 
+    exit
 end
 
 
@@ -118,6 +120,7 @@ begin
 foo4 = get_name
 
 allfoo = foo.chomp  + "                             "+ foo2.chomp + "                               " + foo3.chomp + "                                      " + foo4.chomp 
+allfoo2 = [foo,foo2,foo3,foo4]
 puts "The date and time of the review are #{foo}"
 rescue  InvalidNameError => e
     puts e.message
@@ -137,6 +140,7 @@ rescue  InvalidNameError => e
 #  file.puts foo3.chomp
 file.puts allfoo 
 file.puts ""
+file.print allfoo2
 
  file.close
 
