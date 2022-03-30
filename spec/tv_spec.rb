@@ -1,4 +1,5 @@
 require './src/tv'
+require './src/tv_list'
 
 
 describe Tv do
@@ -53,8 +54,14 @@ describe Tv do
 
     
   end
-end
+    describe self.read do
+    describe do
+    it testIO = StringIO.new do
+    sutObject.writeStuffTo testIO 
+    testIO.string.should == "Hello, world!"
 
+end
+end
 
     
 
