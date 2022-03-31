@@ -54,13 +54,13 @@ describe Tv do
 
     
   end
-    describe self.read do
-    describe do
-    it testIO = StringIO.new do
-    sutObject.writeStuffTo testIO 
-    testIO.string.should == "Hello, world!"
+#     describe self.read do
+#     describe do
+#     it testIO = StringIO.new do
+#     sutObject.writeStuffTo testIO 
+#     testIO.string.should == "Hello, world!"
 
-end
+# end
 end
 
     
