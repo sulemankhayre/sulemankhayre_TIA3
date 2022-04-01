@@ -157,10 +157,7 @@ quest
 # have to search and endit
 select = gets.strip
 
-if select == '1'
-  module Tv
-  end 
-end
+
 if select == '2'
    puts Rainbow("\n\nYour stored Reviews\n\n ").green
     puts read
@@ -173,13 +170,14 @@ elsif select == '5'
 elsif select == '6'
   exit
 end
-end
-module Tv
+
+if select == '1'
+     
 class InvalidNameError < StandardError
   def message
     return Rainbow('Show must not be empty').green
   end
-end
+
 
 def self.gettv
     print Rainbow('Enter the Tv show: ').green
@@ -239,6 +237,8 @@ end
         return {:dob=>dob, :time=>time}
     end
   begin
+
+
 foo4 = getname
 
 allfoo2 = [foo]
@@ -272,5 +272,6 @@ puts Rainbow("The date and time of the review are #{foo}").green
   file.puts Rainbow(res).color(3)
 
   file.close
-
+end
 end 
+end
