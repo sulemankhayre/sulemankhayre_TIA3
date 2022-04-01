@@ -1,16 +1,15 @@
 require './src/tv'
-require './src/tv_list'
 
 
 describe Tv do
     describe '#get_name' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
-        expect(Tv.get_tv).to eq('sam')
+        expect(Tv.gettv).to eq('sam')
         end
     it 'raises an exception if name is empty' do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
-        expect{Tv.get_tv}.to raise_error(InvalidNameError)
+        expect{Tv.gettv}.to raise_error(InvalidNameError)
         end
     end
 
@@ -19,11 +18,11 @@ describe Tv do
     describe '#get_direc' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
-        expect(Tv.get_direc).to eq('sam')
+        expect(Tv.getdirec).to eq('sam')
         end
     it 'raises an exception if name is empty' do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
-        expect{Tv.get_direc}.to raise_error(InvalidNameError)
+        expect{Tv.getdirec}.to raise_error(InvalidNameError)
         end
     end
 end
@@ -45,15 +44,16 @@ describe Tv do
     describe '#get_dob' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
-        expect(Tv.get_tv).to eq('sam')
+        expect(Tv.gettv).to eq('sam')
         end
     it 'raises an exception if name is empty' do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
-        expect{Tv.get_tv}.to raise_error(InvalidNameError)
+        expect{Tv.gettv}.to raise_error(InvalidNameError)
         end
 
     
-  end
+    end
+end
 #     describe self.read do
 #     describe do
 #     it testIO = StringIO.new do
@@ -61,7 +61,6 @@ describe Tv do
 #     testIO.string.should == "Hello, world!"
 
 # end
-end
 
     
 
