@@ -1,0 +1,10 @@
+Purpose 
+
+The purpose of the program is to allocate tvshows
+inputted by the user. Inputs will be able to be 
+searched and editted, with user input exported to a 
+txt file. 
+
+The collections of values will be interconneted
+with a menu from 1-6. Each selection will enable tv shows
+to be reviewed, retrived and modified.

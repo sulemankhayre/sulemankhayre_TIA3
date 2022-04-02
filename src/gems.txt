@@ -1,0 +1,3 @@
+
+The gems used are stored within Gem file and are allocated with bundler.
+Below are the gems used rspec For tdd testing highline for colouraztion of text figlet To acquire ascii heading tty-prompt To create clean ui display and clean code

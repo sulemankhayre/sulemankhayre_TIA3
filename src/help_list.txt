@@ -1,1 +1,7 @@
-sdsadsdasdsadsa
+Help list 
+'--h', '--help'
+
+Below displayed are the commands to find what the project is about and gems used
+'--g', '--gems'
+
+'--a', '--about'

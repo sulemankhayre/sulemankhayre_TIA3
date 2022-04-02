@@ -3,41 +3,38 @@ require 'ruby_figlet'
 require 'rainbow/refinement'
 require 'tty-prompt'
 
-
 begin
-    # CLI arguments
-    arguments = ARGV
+  arguments = ARGV
     case
     when ( arguments & ['--h', '--help']).any?
-        File.foreach('./src/help_list.txt') do |line|
-            puts line
-        end
-        exit
+      File.foreach('./src/help_list.txt') do |line|
+        puts line
+      end
+      exit
     when (arguments & ['--a', '--about']).any?
-        File.foreach('./src/purpose.txt') do |line|
-            puts line
-        end
-        exit
+      File.foreach('./src/purpose.txt') do |line|
+        puts line
+      end
+      exit
     when (arguments & ['--g', '--gems']).any?
-        File.foreach('./src/gems.txt') do |line|
-            if line.include?('gem')
-                puts line
+      File.foreach('./src/gems.txt') do |line|
+        if line.include?('gem')
+          puts line
             end
-        end
-        exit
-end
+      end
+      exit
+    end
 
+  using RubyFiglet
 
-using RubyFiglet
-
-puts RubyFiglet::Figlet
-moo = 'Ruby!'
-moo.art!
-puts moo
-def self.getdata
-  file = File.open('./src/tv_list.txt')
-  data = file.readlines.map { |x| x.strip()}
-end
+  puts RubyFiglet::Figlet
+  moo = 'Ruby!'
+  moo.art!
+  puts moo
+  def self.getdata
+    file = File.open('./src/tv_list.txt')
+    data = file.readlines.map { |x| x.strip()}
+  end
 
 def self.read
   puts '######'
@@ -155,9 +152,7 @@ end
     puts Rainbow('6.Exit').green
   end
   end
-    
-
-
+  
   main_menu
   quest
   select = gets.strip
