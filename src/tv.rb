@@ -3,6 +3,31 @@ require 'ruby_figlet'
 require 'rainbow/refinement'
 require 'tty-prompt'
 
+
+begin
+    # CLI arguments
+    arguments = ARGV
+    case
+    when ( arguments & ['--h', '--help']).any?
+        File.foreach('./src/help_list.txt') do |line|
+            puts line
+        end
+        exit
+    when (arguments & ['--a', '--about']).any?
+        File.foreach('./src/purpose.txt') do |line|
+            puts line
+        end
+        exit
+    when (arguments & ['--g', '--gems']).any?
+        File.foreach('./src/gems.txt') do |line|
+            if line.include?('gem')
+                puts line
+            end
+        end
+        exit
+end
+
+
 using RubyFiglet
 
 puts RubyFiglet::Figlet
@@ -130,6 +155,8 @@ end
     puts Rainbow('6.Exit').green
   end
   end
+    
+
 
   main_menu
   quest
@@ -237,4 +264,6 @@ end
       file.close
     end
   end
-  end
+
+end
+end
