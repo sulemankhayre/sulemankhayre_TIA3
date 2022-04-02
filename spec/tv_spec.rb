@@ -2,7 +2,7 @@ require './src/tv'
 
 
 describe Tv do
-    describe '#get_name' do
+    describe '#getname' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
         expect(Tv.gettv).to eq('sam')
@@ -15,7 +15,7 @@ describe Tv do
 
 end
 describe Tv do
-    describe '#get_direc' do
+    describe '#getdirec' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
         expect(Tv.getdirec).to eq('sam')
@@ -28,20 +28,20 @@ describe Tv do
 end
 
 describe Tv do
-    describe '#get_review' do
+    describe '#getreview' do
     it 'returns the review input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
-        expect(Tv.get_review).to eq('sam')
+        expect(Tv.getreview).to eq('sam')
         end
     it 'raises an exception if review is empty' do
         allow(Tv).to receive(:gets) .and_return('  ', 'hello')
-        expect{Tv.get_review}.to raise_error(InvalidNameError)
+        expect{Tv.getreview}.to raise_error(InvalidNameError)
         end
     end
 end
 
 describe Tv do
-    describe '#get_dob' do
+    describe '#getdob' do
     it 'returns the name input by the user' do
         allow(Tv).to receive(:gets) .and_return('sam')
         expect(Tv.gettv).to eq('sam')
