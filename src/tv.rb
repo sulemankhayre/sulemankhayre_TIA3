@@ -47,6 +47,7 @@ def self.read
 end
 
 def self.search
+  
   puts Rainbow('Enter tv show to search! ').green
   input = gets.chomp
   data = getdata
@@ -162,7 +163,7 @@ end
   elsif select == '3'
     puts edit
   elsif select == '4'
-    File.open('./src/tv_list.txt', 'w') { |file| file.truncate(0) }
+    File.open('./tv_list.txt', 'w') { |file| file.truncate(0) }
   elsif select == '5'
     puts search
   elsif select == '6'
@@ -220,9 +221,9 @@ end
       end
 
       def self.getname
-        print Rainbow('Enter your DOB: ').green
+        print Rainbow('Enter date watched: ').green
         time = gets.strip
-        print Rainbow('Enter your time: ').green
+        print Rainbow('Enter time watched: ').green
         dob = gets.strip
         raise(InvalidNameError) if time.empty?
 
