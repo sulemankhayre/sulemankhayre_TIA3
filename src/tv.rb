@@ -7,17 +7,17 @@ begin
   arguments = ARGV
     case
     when ( arguments & ['--h', '--help']).any?
-      File.foreach('./src/help_list.txt') do |line|
+      File.foreach('./help_list.txt') do |line|
         puts line
       end
       exit
     when (arguments & ['--a', '--about']).any?
-      File.foreach('./src/purpose.txt') do |line|
+      File.foreach('./purpose.txt') do |line|
         puts line
       end
       exit
     when (arguments & ['--g', '--gems']).any?
-      File.foreach('./src/gems.txt') do |line|
+      File.foreach('./gems.txt') do |line|
         if line.include?('gem')
           puts line
             end
@@ -32,13 +32,13 @@ begin
   moo.art!
   puts moo
   def self.getdata
-    file = File.open('./src/tv_list.txt')
+    file = File.open('./tv_list.txt')
     data = file.readlines.map { |x| x.strip()}
   end
 
 def self.read
   puts '######'
-  File.open('./src/tv_list.txt', 'r') do |f|
+  File.open('./tv_list.txt', 'r') do |f|
     f.each_line do |line|
       puts line
     end
@@ -70,7 +70,7 @@ def self.edit
   if str
     lines = data.select { |d| d != str }    
 
-    File.open('./src/tv_list.txt', 'w') do |f|
+    File.open('./tv_list.txt', 'w') do |f|
       lines.each do |l|
         f.print Rainbow(l).color(3)
         f.puts ' '
@@ -112,7 +112,7 @@ def self.edit
     allfoo5 = [foo5]
     allfoo6 = [foo4]
 
-    file = File.open('./src/tv_list.txt', 'a')
+    file = File.open('./tv_list.txt', 'a')
     res = ''
     res += allfoo2.to_s
     res += allfoo3.to_s
@@ -152,7 +152,7 @@ end
     puts Rainbow('6.Exit').green
   end
   end
-  
+
   main_menu
   quest
   select = gets.strip
@@ -168,13 +168,13 @@ end
   elsif select == '6'
     exit
   end
-
   if select == '1'
+    module Tv
     class InvalidNameError < StandardError
       def message
       return Rainbow('Show must not be empty').green
       end
-
+  
       def self.gettv
         print Rainbow('Enter the Tv show: ').green
         tv = gets.strip
@@ -245,7 +245,7 @@ end
 
       using Rainbow
 
-      file = File.open('./src/tv_list.txt', 'a')
+      file = File.open('./tv_list.txt', 'a')
 
       res = ''
       res += allfoo2.to_s
@@ -260,5 +260,6 @@ end
     end
   end
 
+end
 end
 end
