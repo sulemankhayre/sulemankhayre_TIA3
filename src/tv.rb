@@ -1,4 +1,5 @@
 # Gems
+require 'rainbow'
 require 'ruby_figlet'
 require 'rainbow/refinement'
 require 'tty-prompt'
